@@ -1,5 +1,5 @@
 export const consts = {
-	ENV_PROD: "production",
+    ENV_PROD: "production",
     ENV_DEV: "dev",
     ENV_TEST: "test",
     SERVER_DATE_FORMAT: "YYYY-MM-DD",
