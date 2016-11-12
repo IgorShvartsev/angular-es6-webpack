@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const autoPrefixer 	    = require('autoprefixer');
+const autoPrefixer 	= require('autoprefixer');
 const CssSourcemapPlugin = require('css-sourcemaps-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV || 'dev';
@@ -26,26 +26,25 @@ let config = {
     module: {
         loaders: [
 
-         	{
+           {
              	test: /\.js$/,
              	exclude: [/node_modules/, /src\/images/, /src\/css/],
-             	//include : './app',
              	loader: 'ng-annotate!babel?presets[]=es2015'
-         	},
+            },
 
-         	{ 	
-         		test: /\.css$/, 
-         		loader: ExtractTextPlugin.extract('style', 'css-loader!postcss-loader')
+            { 	
+         	test: /\.css$/, 
+         	loader: ExtractTextPlugin.extract('style', 'css-loader!postcss-loader')
             },
             
             /**
             * extract images to images folder 
             */ 
             {
-      			test: /\.(png|jpg|jpeg|gif|svg)(\?\S*)?$/,
+      		test: /\.(png|jpg|jpeg|gif|svg)(\?\S*)?$/,
                 include: /\/node_modules\//,
-      			loader: 'file?name=images/[1]&regExp=node_modules/(.*)'
-    		},
+      		loader: 'file?name=images/[1]&regExp=node_modules/(.*)'
+    	    },
             {
                 test: /\.(png|jpg|jpeg|gif)(\?\S*)?$/,
                 exclude: /\/node_modules\//,
@@ -61,21 +60,14 @@ let config = {
                 loader: 'file?name=fonts/[name].[ext]'
             },
 
-    		/**
-    		* https://github.com/webpack/html-loader
-    		*/
-    		{
-        		test: /\.html$/,
+    	    /**
+    	    * https://github.com/webpack/html-loader
+    	    */
+    	    {
+        	test: /\.html$/,
                 exclude: /\/node_modules\//,
-        		loader: "html"
-      		}
-
-            /*
-    		{
-    			test: /\.html$/,
-      			loader: 'raw'
-    		}
-    		*/
+        	loader: "html"
+      	    }
         ],
         noParse : [/node_modules\/(angular\/angular.js|jquery)/]
     },
@@ -87,9 +79,9 @@ let config = {
     */
     postcss : [
     	autoPrefixer ({
-      		browsers: ['last 2 version']
+      	    browsers: ['last 2 version']
     	})	
-  	],
+    ],
 
     htmlLoader: {
         ignoreCustomFragments: [/\{\{.*?}}/],
@@ -106,17 +98,17 @@ let config = {
         new webpack.NoErrorsPlugin(),
 
         new ExtractTextPlugin('css/style.[hash].css', {
-			disable: false,
-			allChunks: true
-		}),
+	    disable: false,
+	    allChunks: true
+	}),
 
         /**
         * Include output result file links (CSS, JS) into given HTML template
         *   
         */
-		new HtmlWebpackPlugin({
-        	template: './index.html',
-        	inject: 'body'
+	new HtmlWebpackPlugin({
+            template: './index.html',
+            inject: 'body'
       	})
     ]
 };
