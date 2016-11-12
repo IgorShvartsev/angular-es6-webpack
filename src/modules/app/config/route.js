@@ -12,7 +12,7 @@ export const appRoute = [
 			if ($location.$$path == '') {
 				return '/';
 			}
-        	return '/404';
-    	});
+			return '/404';
+		});
 	}
 ];
