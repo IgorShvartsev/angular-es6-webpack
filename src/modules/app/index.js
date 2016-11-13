@@ -1,14 +1,22 @@
 import {appModule, loadModuleAssets} from '../bootstrap';
-import {consts} from './config/constant';
-import {config} from './config/config';
-import {viewContentLoaded} from './run/view-content-loaded';
-import {appRoute} from './config/route';
+/* components */
 import {apl} from './component/main';
+import {appHeader} from './component/header-footer/app-header';
+import {appFooter} from './component/header-footer/app-footer';
+/* config */
+import {appRoute} from './config/route';
+/* constants */
+import {appConfig} from './config/app-config';
+import {consts} from './config/constant';
+/* controller */
 import {AppCtrl} from './controller/AppCtrl';
+/* run */
+import {viewContentLoaded} from './run/view-content-loaded';
+
 
 loadModuleAssets(appModule, {
-	'constants' : {consts, config},
-	'components': {apl},
+	'constants' : {consts, appConfig},
+	'components': {apl, appHeader, appFooter},
 	'config': [appRoute],
 	'run'   : [viewContentLoaded]
 }).controller('AppCtrl', AppCtrl);

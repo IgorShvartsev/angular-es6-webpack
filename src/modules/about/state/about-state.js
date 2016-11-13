@@ -2,8 +2,8 @@ export const aboutState = {
     url: '/about',
     name : 'about',
     template: require('../view/about.html'),
-    //controller: 'HomeCtrl',
-    //controllerAs: 'home',
+    controller : 'AboutCtrl',
+    controllerAs : 'about',
     data : {
     	pageTitle : 'About',
     	pageDescription: 'About us'

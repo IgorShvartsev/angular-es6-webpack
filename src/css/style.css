@@ -577,3 +577,8 @@ fieldset[disabled] .btn-success:hover {
     opacity: 0;
     display: none
 }
+
+.err-content{
+    position:relative;
+    margin-top:20%;
+}
