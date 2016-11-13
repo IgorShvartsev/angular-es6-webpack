@@ -16,9 +16,9 @@ export function viewContentLoaded(
 		let element = null;
 		if (hash != '') {
 			element = angular.element($window.document.querySelector('#' + hash))
-				   || angular.element($window.document.querySelector('a[name="' + hash + '"]'));
+				|| angular.element($window.document.querySelector('a[name="' + hash + '"]'));
 		}
 		element = element || angular.element($window.document.body);
-    	$uiViewScroll(element);
+		$uiViewScroll(element);
 	};
 };
